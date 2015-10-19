@@ -1,14 +1,18 @@
 {
-  "name": "wondeotec/emailbidding-sdk",
+  "name": "tixastronauta/emailbidding-sdk",
   "type": "library",
   "description": "Collection of scripts to allow interactions with Emailbidding API",
   "keywords": ["php", "api", "emailbidding", "sdk"],
-  "homepage": "http://github.com/wondeotec/emailbidding-sdk",
+  "homepage": "http://github.com/tixastronauta/emailbidding-sdk",
   "license": "MIT",
   "authors": [
     {
       "name": "Wondeotec SA",
       "email": "developers@wondeotec.com"
+    },
+    {
+      "name": "Tiago Carvalho",
+      "email": "tiago.carvalho@smark.io"
     }
   ],
   "minimum-stability": "stable",
