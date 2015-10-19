@@ -1,7 +1,7 @@
 {
   "name": "tixastronauta/emailbidding-sdk",
   "type": "library",
-  "description": "Collection of scripts to allow interactions with Emailbidding API",
+  "description": "Collection of scripts to allow interactions with Emailbidding API (Guzzle 3 port)",
   "keywords": ["php", "api", "emailbidding", "sdk"],
   "homepage": "http://github.com/tixastronauta/emailbidding-sdk",
   "license": "MIT",
@@ -12,13 +12,13 @@
     },
     {
       "name": "Tiago Carvalho",
-      "email": "tiago.carvalho@smark.io"
+      "email": "tiago.carvalho@gmail.com"
     }
   ],
   "minimum-stability": "stable",
   "require": {
     "php": ">=5.4",
-    "guzzlehttp/guzzle": "4.*",
+    "guzzle/guzzle": "3.*",
     "symfony/yaml": "2.7.5"
   },
   "require-dev": {

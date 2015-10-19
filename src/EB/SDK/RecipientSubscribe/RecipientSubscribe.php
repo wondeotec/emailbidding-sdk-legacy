@@ -11,8 +11,8 @@
 
 namespace EB\SDK\RecipientSubscribe;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
+use Guzzle\Http\Client;
+use Guzzle\Http\Exception as GuzzleException;
 
 /**
  * RecipientSubscribe
@@ -97,11 +97,17 @@ class RecipientSubscribe
 
             $response = null;
             try {
-                $response = $this->guzzleClient->post(
+                $request = $this->guzzleClient->post(
                     $this->getApiEndpoint($publisherId, $listExternalId),
-                    $requestContent
+                    $requestContent['headers'],
+                    $requestContent['body'],
+                    [
+                        'timeout' => $requestContent['timeout']
+                    ]
                 );
-            } catch (ClientException $guzzleException) {
+
+                $response = $request->send();
+            } catch (GuzzleException $guzzleException) {
                 if ($guzzleException->getCode() == 400) {
                     throw new \Exception('Some errors found on this recipient submission: ' . $this->processErrors(
                         $guzzleException->getResponse()->getBody()->getContents()
