@@ -1,9 +1,9 @@
 {
-  "name": "tixastronauta/emailbidding-sdk",
+  "name": "wondeotec/emailbidding-sdk-legacy",
   "type": "library",
   "description": "Collection of scripts to allow interactions with Emailbidding API (Guzzle 3 port)",
   "keywords": ["php", "api", "emailbidding", "sdk"],
-  "homepage": "http://github.com/tixastronauta/emailbidding-sdk",
+  "homepage": "https://github.com/wondeotec/emailbidding-sdk-legacy",
   "license": "MIT",
   "authors": [
     {
