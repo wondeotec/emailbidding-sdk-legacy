@@ -11,8 +11,8 @@
 
 namespace EB\SDK\RecipientSubscribe;
 
-use Guzzle\Http\Client;
-use Guzzle\Http\Exception as GuzzleException;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 
 /**
  * RecipientSubscribe
@@ -84,6 +84,19 @@ class RecipientSubscribe
             throw new \Exception('No recipient found!');
         }
 
+        // Recipient sanity check
+        foreach ($recipients as $recipient) {
+            try {
+                $recipient->hasValidData();
+            } catch (\Exception $recipientException) {
+                throw new \Exception(sprintf(
+                    'The recipient email/hash "%s", has invalid data: %s',
+                    $recipient->getEmailAddress() ?: $recipient->getHash(),
+                    $recipientException->getMessage()
+                ));
+            }
+        }
+
         $offset = 0;
         while (true) {
             $subscribe = new Subscribe();
@@ -97,17 +110,11 @@ class RecipientSubscribe
 
             $response = null;
             try {
-                $request = $this->guzzleClient->post(
+                $response = $this->guzzleClient->post(
                     $this->getApiEndpoint($publisherId, $listExternalId),
-                    $requestContent['headers'],
-                    $requestContent['body'],
-                    [
-                        'timeout' => $requestContent['timeout']
-                    ]
+                    $requestContent
                 );
-
-                $response = $request->send();
-            } catch (GuzzleException $guzzleException) {
+            } catch (ClientException $guzzleException) {
                 if ($guzzleException->getCode() == 400) {
                     throw new \Exception('Some errors found on this recipient submission: ' . $this->processErrors(
                         $guzzleException->getResponse()->getBody()->getContents()

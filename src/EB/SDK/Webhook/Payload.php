@@ -294,16 +294,16 @@ class Payload implements \JsonSerializable
     public function jsonSerialize()
     {
         return [
-            'ip_address' => $this->getIpAddress(),
-            'action'  => $this->getAction(),
-            'campaign_id' => (int)$this->getCampaignId(),
-            'list_external_id' => $this->getListExternalId(),
-            'reason' => $this->getReason(),
+            'ip_address'              => $this->getIpAddress(),
+            'action'                  => $this->getAction(),
+            'campaign_id'             => (int)$this->getCampaignId(),
+            'list_external_id'        => $this->getListExternalId(),
+            'reason'                  => $this->getReason(),
             'recipient_email_address' => $this->getRecipientEmailAddress(),
-            'hash' => $this->getHash(),
-            'recipient_external_id' => (string)$this->getRecipientExternalId(),
-            'trigger_date' => $this->getTriggerDate()->format('Y-m-d h:i:s'),
-            'type' => $this->getType()
+            'hash'                    => $this->getHash(),
+            'recipient_external_id'   => (string)$this->getRecipientExternalId(),
+            'trigger_date'            => $this->getTriggerDate()->format('Y-m-d h:i:s'),
+            'type'                    => $this->getType()
         ];
     }
 }

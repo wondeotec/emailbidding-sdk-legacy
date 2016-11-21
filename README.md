@@ -1,12 +1,12 @@
-# Emailbidding SDK (Guzzle 3 port)
+# Emailbidding SDK
 
 This SDK serves to help Emailbiddings's publishers to integrate their systems with Emailbidding platform.
 
-**Note:** This is a fork of [wondeotec/emailbidding-sdk](https://github.com/wondeotec/emailbidding-sdk) that uses Guzzle 3 instead of Guzzle 4+
-
 ## Requirements
-You'll need to be install on your server the PHP 5.4 version or higher and add the package 'wondeotec/emailbidding-sdk' 
+You'll need to be install on your server the PHP 5.6 version or higher and add the package 'wondeotec/emailbidding-sdk' 
 to you [composer](https://getcomposer.org/) dependencies.
+
+-**Note:** This is a fork of [wondeotec/emailbidding-sdk](https://github.com/wondeotec/emailbidding-sdk) that uses Guzzle 6.2 instead of Guzzle 4.*
 
 ## Webhooks
 

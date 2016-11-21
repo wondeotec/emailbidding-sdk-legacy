@@ -26,8 +26,30 @@ class RecipientFactory
      */
     public static function createSimpleRecipient($emailAddress, $countryCode)
     {
+
         return (new Recipient())->setEmailAddress($emailAddress)
             ->setCountry($countryCode);
+    }
+
+    /**
+     * @param string    $emailAddress The recipient email address
+     * @param string    $countryCode The recipient 2 letters country code
+     * @param \DateTime $unsubscriptionDate The recipient unsubscription date (use new \DateTime() for now)
+     * @param string    $unsubscriptionIp The recipient IP when the unsubscription request occur
+     *
+     * @return Recipient
+     */
+    public static function createUnsubscribedRecipient(
+        $emailAddress,
+        $countryCode,
+        \DateTime $unsubscriptionDate,
+        $unsubscriptionIp = '127.0.0.1'
+    ) {
+
+        return self::createSimpleRecipient($emailAddress, $countryCode)
+            ->setSubscriptionStatus(Recipient::STATUS_UNSUBSCRIBED)
+            ->setUnsubscriptionDate($unsubscriptionDate)
+            ->setUnsubscriptionIp($unsubscriptionIp);
     }
 
     /**
@@ -40,9 +62,31 @@ class RecipientFactory
      */
     public static function createSimpleAnonymousRecipient($emailAddress, $countryCode)
     {
+
         return (new Recipient())->setHash(self::getEmailAddressHash($emailAddress))
             ->setCountry($countryCode)
             ->setProvider(self::getDomainFromEmail($emailAddress));
+    }
+
+    /**
+     * @param string    $emailAddress The recipient email address
+     * @param string    $countryCode The recipient 2 letters country code
+     * @param \DateTime $unsubscriptionDate The recipient unsubscription date (use new \DateTime() for now)
+     * @param string    $unsubscriptionIp The recipient IP when the unsubscription request occur
+     *
+     * @return Recipient
+     */
+    public static function createUnsubscribedAnonymousRecipient(
+        $emailAddress,
+        $countryCode,
+        \DateTime $unsubscriptionDate,
+        $unsubscriptionIp = '127.0.0.1'
+    ) {
+
+        return self::createSimpleAnonymousRecipient($emailAddress, $countryCode)
+            ->setSubscriptionStatus(Recipient::STATUS_UNSUBSCRIBED)
+            ->setUnsubscriptionDate($unsubscriptionDate)
+            ->setUnsubscriptionIp($unsubscriptionIp);
     }
 
     /**
@@ -54,6 +98,7 @@ class RecipientFactory
      */
     public static function getDomainFromEmail($emailAddress)
     {
+
         return substr(strrchr($emailAddress, "@"), 1);
     }
 
@@ -66,6 +111,7 @@ class RecipientFactory
      */
     public static function getEmailAddressHash($emailAddress)
     {
+
         return md5($emailAddress);
     }
 }
