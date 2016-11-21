@@ -1,24 +1,20 @@
 {
-  "name": "wondeotec/emailbidding-sdk-legacy",
+  "name": "wondeotec/emailbidding-sdk",
   "type": "library",
-  "description": "Collection of scripts to allow interactions with Emailbidding API (Guzzle 3 port)",
+  "description": "Collection of scripts to allow interactions with Emailbidding API",
   "keywords": ["php", "api", "emailbidding", "sdk"],
-  "homepage": "https://github.com/wondeotec/emailbidding-sdk-legacy",
+  "homepage": "http://github.com/wondeotec/emailbidding-sdk",
   "license": "MIT",
   "authors": [
     {
       "name": "Wondeotec SA",
       "email": "developers@wondeotec.com"
-    },
-    {
-      "name": "Tiago Carvalho",
-      "email": "tiago.carvalho@gmail.com"
     }
   ],
   "minimum-stability": "stable",
   "require": {
     "php": ">=5.4",
-    "guzzle/guzzle": "3.*",
+    "guzzlehttp/guzzle": "6.2.*",
     "symfony/yaml": "2.7.5"
   },
   "require-dev": {
