@@ -3,7 +3,7 @@
   "type": "library",
   "description": "Collection of scripts to allow interactions with Emailbidding API (Guzzle 6.2)",
   "keywords": ["php", "api", "emailbidding", "sdk"],
-  "homepage": "http://github.com/wondeotec/emailbidding-sdk-legacy",
+  "homepage": "https://github.com/wondeotec/emailbidding-sdk-legacy",
   "license": "MIT",
   "authors": [
     {
